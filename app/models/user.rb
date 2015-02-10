@@ -11,7 +11,11 @@ class User < ActiveRecord::Base
 
   def producer?
     role == 'producer'
-  end  
+  end
+
+  # def user?
+  #   role == 'default'
+    
 
 
 

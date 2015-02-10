@@ -2,5 +2,4 @@
 <p>welcome to underground the place for upcoming producers to showcase their music</p> -->
 
 <h1>UnderGround </h1>
-<%= link_to 'My Hubb', controller: 'producers' %>
-
+<%= link_to "#{current_user.try(:first_name)} Hubb", producers_path %>
