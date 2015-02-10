@@ -1,0 +1,18 @@
+<p>
+  <strong>Name:</strong>
+  <%= @producer.name %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @producer.text %>
+</p>
+
+<h2>Comments</h2>
+<% render @producer.comments %>
+ 
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
+<%= link_to 'Edit Producer', edit_producer_path(@producer) %>
+<%= link_to 'Back to Producers', producers_path %>
