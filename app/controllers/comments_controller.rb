@@ -2,6 +2,8 @@ class CommentsController < ApplicationController
 
   before_action :authenticate_user!
     # http_basic_authenticate_with name: "abc", password: "secret", only: :destroy
+  can? :update, Comment
+  
 
   def create
     @producer = Producer.find(params[:producer_id])
