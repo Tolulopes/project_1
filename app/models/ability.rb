@@ -2,24 +2,22 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :update, :destroy, :to => :modify
-    can :modify, Comment
+    # alias_action :update, :destroy, to: :modify
+    # can :modify, Comment
   
-    # Define abilities for the passed in user here. For example:
-    #
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
-        can :assign_roles, User 
+        # can :assign_roles, User 
         # can [:new, :create, :edit, :update, :destroy], [Producer, Comment]
       elsif user.producer?
-        can :manage, Producer
-        can [:create], Comment
+        # can :manage, :all
+        can :read, :all
+        can :all, Track, user_id: user.id
         # can do some stuff
-      else 
-
-        can :read, [Producer, Comment]
-        can [:create], [User, Comment] 
+      else
+        can :read, :all
+        can [:new, :create], Comment
       end
     
       

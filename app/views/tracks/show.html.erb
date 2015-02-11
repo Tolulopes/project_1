@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @track.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @track.user.first_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @track.description %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= audio_tag(@track.song, controls: true) %>
+</p>
+<% if user_signed_in? %>
+  <h2>Add a comment:</h2>
+  <%= form_for([@comment]) do |f| %>
+    <p>
+      <%= f.label :commenter %><br>
+      <%= f.text_field :commenter, value: current_user.first_name, disabled: true %>
+    </p>
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+  <% end %>
+<% end %>
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %> 
+
+

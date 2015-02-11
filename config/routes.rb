@@ -4,13 +4,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   
-  get 'users' => 'users#index' 
+  # get 'users' => 'users#index' 
 
-resources :users
-  
-  resources :producers do
-    resources :comments  
-  end
+  resources :users
+  resources :producers 
+  resources :tracks
+  resources :comments
 
   
 

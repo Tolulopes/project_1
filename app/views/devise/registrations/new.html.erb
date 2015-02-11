@@ -14,6 +14,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :user_type %><br>
+    <%= f.select (:role) do  %>
+    <%[['producer', 'producer'], ['user', 'user']].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -25,6 +34,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <p>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </p>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

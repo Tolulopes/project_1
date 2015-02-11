@@ -3,19 +3,21 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
     # http_basic_authenticate_with name: "abc", password: "secret", only: :destroy
   # can? :update, Comment
-  
+  def new
+    @comment = Comment.new
+  end
 
   def create
-    @producer = Producer.find(params[:producer_id])
-    @comment = @producer.comments.create(comment_params)
-    redirect_to producer_path(@producer)
+    @user = User.find(params[:user_id])
+    @comment = @user.comments.create(comment_params)
+    redirect_to user_path(@user)
   end
 
   def destroy
-    @producer = Producer.find(params[:article_id])
-    @comment = @producer.comments.find(params[:id])
+    @user = User.find(params[:user_id])
+    @comment = @user.comments.find(params[:id])
     @comment.destroy
-    redirect_to producer_path(@producer)
+    redirect_to user_path(@user)
   end
 
   private

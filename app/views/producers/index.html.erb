@@ -18,11 +18,12 @@
   <tr>
     <td><%= producer.name %></td>
     <td><%= producer.text %></td>
-    <td><%= link_to 'Show', producer_path(producer) %></td>
-    <td><%= link_to 'Edit', edit_producer_path(producer) %>
-    </td>
-    <td><%= link_to 'Destroy', producer_path(producer), method: :delete,
+    <% if can? :manage, @producer %>
+      <td><%= link_to 'Show', producer_path(producer) %></td>
+      <td><%= link_to 'Edit', edit_producer_path(producer) %></td>
+      <td><%= link_to 'Destroy', producer_path(producer), method: :delete,
       data: { confirm: 'Are you sure' } %></td>
+    <% end %>
   </tr>
  <% end %>
 </table>

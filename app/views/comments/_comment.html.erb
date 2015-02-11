@@ -8,7 +8,7 @@
   <%= comment.body %>
 </p>
 <p>
-  <%= link_to 'Destroy Comment', [comment.producer, comment], 
+  <%= link_to 'Destroy Comment', [comment.user, comment], 
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
 </p>
