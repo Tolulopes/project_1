@@ -1,11 +1,12 @@
 class ProducersController < ApplicationController
     load_and_authorize_resource
 
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only:[:new, :create, :edit, :update, :destroy]
     # http_basic_authenticate_with name: "abc", password: "secret", except: [:index, :show]
 
   def index
     @producers = Producer.all
+    authorize! :index, @producers
   end
 
   def show
@@ -15,6 +16,7 @@ class ProducersController < ApplicationController
 
   def new
     @producer = Producer.new
+    authorize! :create, @producer
   end
 
   def edit

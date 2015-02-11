@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   
   get 'users' => 'users#index' 
+
+resources :users
   
   resources :producers do
     resources :comments  

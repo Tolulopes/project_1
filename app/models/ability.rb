@@ -18,7 +18,7 @@ class Ability
         # can do some stuff
       else 
 
-        can :read, :all 
+        can :read, [Producer, Comment]
         can [:create], [User, Comment] 
       end
     

@@ -1,5 +1,23 @@
 <% @users.each do |user| %>
-  <td><%= user.first_name %></td>
+  <!-- <%= user.first_name %> -->
+
+  <%= user.email %>
+  <%= form_for(user) do |f| %>
+  <%= radio_button_tag(:role, "producer") %>
+  <%= label_tag(:role_producer, "producer") %>
+  <%= radio_button_tag(:role, "admin") %>
+  <%= label_tag(:role_admin, "admin") %>
+  <%= radio_button_tag(:role, "user") %>
+  <%= label_tag(:role_user, "user") %>
+<!--   <%= f.submit %>
+  <% end %> -->
+  <br>
+
+
+<!-- 
+  role create a form user which has role as radio button and put submit
+ -->
+
 <% end %>
 
 
