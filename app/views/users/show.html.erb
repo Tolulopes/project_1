@@ -1,16 +1,32 @@
-<% @user.tracks.each do |track| %>
-  <%= link_to track.name, track %>
-<% end %>
+<div class="header">
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.first_name %>
-</p>
+  <nav>
+      <%= link_to 'New Track', new_track_path %>
+      <% link_to 'Edit Track', edit_track_path %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <%= link_to('ALL TRACKS', tracks_path) %>
+  </nav>
+</div>
 
-<p>
-  <strong>Bio:</strong>
-  <!-- Tolu needs to add bio to the USERS table .. MIGRATION!!! -->
-  <%#= @user.bio %>
-</p>
+  <p>
+      <strong>User:</strong>
+      <%= @user.first_name %>
+  </p>
 
-<%= link_to 'Back to Users', users_path %>
+  <p>
+      <strong>Image:</strong>
+      <%= image_tag @user.image %>
+  </p> 
+
+<div class="bio">
+  <p>
+      <strong>Bio:</strong>
+      <%= @user.bio %>
+  </p>
+
+
+    <% @user.tracks.each do |track| %>
+    <%= link_to track.name, track %>
+    <% end %>
+</div>
+

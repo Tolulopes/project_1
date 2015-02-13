@@ -7,16 +7,16 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(resource)
-    if resource.role == 'user'
-      producers_path
-    end
-  end
+  # def after_sign_in_path_for(resource)
+  #   if resource.role == 'user'
+  #     redirect_to user_path(resource) and return
+  #   end
+  # end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :first_name << :role << :image
+    devise_parameter_sanitizer.for(:sign_up) << :first_name << :role << :image << :bio
   end
 
 #  before_action :configure_permitted_parameters, if: :devise_controller?

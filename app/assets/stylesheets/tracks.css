@@ -1,0 +1,67 @@
+div.row {
+  width: 100%;
+}
+
+textarea {
+width: 70%;
+}
+
+.track {
+  margin-top: 75px;
+}
+
+.newtrack {
+  text-shadow: 0 0 5em ;
+  padding: 2em;
+  color: black;
+  padding: 8px 8px 8px 8px;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.name {
+  text-shadow: 0 0 2em ;
+  padding: 2em;
+  color: white;
+  padding: 8px 8px 8px 8px;
+  /*color: #00F;*/
+}
+
+h1 {
+  text-shadow: 0 0 2em ;
+  padding: 2em;
+  color: white;
+  padding: 8px 8px 8px 8px;
+}
+
+table {
+  width: 100%;
+    background-color: #D8F0DA;
+    border: 1px;
+    min-width: 100%;
+    position: relative;
+    opacity: 0.97;
+    background: transparent;
+}
+
+table tr td {
+padding: 0.5625rem 0.625rem;
+font-size: 0.875rem;
+color: #D4D6E2;
+text-align: center;
+/*width: 100%;*/
+    background-color: #D8F0DA;
+    border: 1px;
+    min-width: 100%;
+    position: relative;
+    opacity: 0.97;
+    background: transparent;
+}
+
+a {
+color: #B7B7B9;
+}
+
+h1 {
+  text-align: center;
+}
