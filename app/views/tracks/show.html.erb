@@ -1,71 +1,42 @@
+<p id="notice"><%= notice %></p>
 
-<% content_for :body do %>
-  <body id='no-background'>
+<p>
+  <strong>Name:</strong>
+  <%= @track.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @track.user.first_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @track.description %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= audio_tag(@track.song, controls: true) %>
+</p>
+<% if user_signed_in? %>
+  <h2>Add a comment:</h2>
+  <%= form_for([@comment]) do |f| %>
+    <p>
+      <%= f.label :commenter %><br>
+      <%= f.text_field :commenter, value: current_user.first_name, disabled: true %>
+    </p>
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
+    </p>
+
+    <p>
+    <%= f.submit %>
+    </p>
+  <% end %>
 <% end %>
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %> 
 
-<div class="row track" > 
-    <div class="small-6 small-aligned columns">
-      
-    <div class="name">
-      <h1>Sounds</h1>
-        <% if can? :modify, @track %>
-        <%= link_to 'Edit', edit_track_path(@track) %> |
-    <% end %>
-        <%= link_to 'Back', tracks_path %> 
-    
-    <p>
-        <strong>Name:</strong>
-        <%= @track.name %>
-    </p>
-
-    <p>
-        <strong>User:</strong>
-        <%= @track.user.first_name %>
-    </p>
-
-    <p>
-        <strong>Description:</strong>
-        <%= @track.description %>
-  </div>  
-    
-    </p>
-    
-    <%= image_tag("track.gif") %>
-    
-    <p>
-        <strong>Song:</strong>
-        <%= audio_tag(@track.song, controls: true) %>
-    </p>
-
-    <% if user_signed_in? %>
-      
-    <%= form_for(@comment) do |f| %>
-    
-    <p>
-        <%= f.label :commenter %><br>
-        <%= f.text_field :commenter, value: current_user.first_name, disabled: true %>
-    </p>
-    
-    <p>
-        <%= f.label :body %><br>
-        <%= f.text_area :body %>
-    </p>
-
-        <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :track_id, value: @track.id %>
-    <p>
-        <%= f.submit %>
-    </p>
-        <% end %>
-        <% end %>
-
-    <% @track.comments.each do |comment| %>
-
-    <p><%= comment.body %></p>
-    <p><%= link_to "Delete", comment, method: 'delete' %></p>
-        <% end %>
-
-</div>
-
-</div>
 

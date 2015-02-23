@@ -1,10 +1,6 @@
-<h1>Underground Sounds</h1>
-
-<div class="row">
-<div class="small-6 small-aligned columns">
-
 <p id="notice"><%= notice %></p>
 
+<h1>Listing Tracks</h1>
 
 <table>
   <thead>
@@ -21,14 +17,12 @@
     <% @tracks.each do |track| %>
       <tr>
         <td><%= track.name %></td>
-        <td><%= link_to track.user.first_name, track.user %></td>
+        <td><%= track.user_id %></td>
         <td><%= track.description %></td>
         <td><%= track.song %></td>
         <td><%= link_to 'Show', track %></td>
-        <% if can? :modify, track %>
-          <td><%= link_to 'Edit', edit_track_path(track) %></td>
-          <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <td><%= link_to 'Edit', edit_track_path(track) %></td>
+        <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,6 +30,4 @@
 
 <br>
 
-<%= link_to 'New Track', new_track_path %> 
-</div>
-</div>
+<%= link_to 'New Track', new_track_path %>

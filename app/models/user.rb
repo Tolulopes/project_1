@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   has_many :tracks
 
   mount_uploader :image, ImageUploader
-  
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -14,4 +15,11 @@ class User < ActiveRecord::Base
   def producer?
     role == 'producer'
   end
+
+  # def user?
+  #   role == 'default'
+    
+
+
+
 end

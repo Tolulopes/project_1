@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    alias_action :edit, :update, :delete, :destroy, to: :modify
+    # alias_action :update, :destroy, to: :modify
     # can :modify, Comment
   
       user ||= User.new # guest user (not logged in)
@@ -10,18 +10,16 @@ class Ability
         can :manage, :all
         # can :assign_roles, User 
         # can [:new, :create, :edit, :update, :destroy], [Producer, Comment]
-      # elsif user.producer?
-      #   # can :manage, :all
-      #   can :read, :all
-      #   can :all, Track, user_id: user.id
-      #   # can do some stuff
+      elsif user.producer?
+        # can :manage, :all
+        can :read, :all
+        can :all, Track, user_id: user.id
+        # can do some stuff
       else
         can :read, :all
-        can [:new, :create, :delete], [Comment, Track]
+        can [:new, :create], Comment
       end
     
-      can [:modify], Track, user_id: user.id
-
       
 
     #

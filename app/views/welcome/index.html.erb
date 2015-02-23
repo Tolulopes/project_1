@@ -1,8 +1,9 @@
-  <div class="intro">
-    <h1>UnderGround</h1>
-    <h3>Underground the app for upcoming producers who want to showcase their work<br>Want To See More<br> Then Enter the underground</h3>
-    <%= button_to('Enter The Underground', new_user_session_path)  %>  
-  </div>
+<!-- <h1>Underground</h1>
+<p>welcome to underground the place for upcoming producers to showcase their music</p> -->
+
+<h1>UnderGround</h1>
+<p>underground the app blah blah</p>
+
 <% if user_signed_in? %>
     <li>
       <%= image_tag(current_user.image) %>
@@ -13,4 +14,7 @@
       <% end %>
     </li>
   <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>  
+    </li>
 <% end %>
