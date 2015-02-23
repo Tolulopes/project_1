@@ -1,1 +1,24 @@
-$color-brand: pink;
+$color-brand: rgb(152, 176, 179);
+$font-default: 'Avenir';
+
+* {
+  box-sizing:border-box;
+}
+
+body {
+    font-family: $font-default;
+}
+.container {
+  width:75%;
+  height:70%;
+  margin:0 auto;
+  padding:2em;
+  border:1px solid $color-brand;
+  background-image: url('soundboard.jpg');
+  background-image: no-repeat;
+
+    h1 {
+      color:$color-brand;
+      text-align: center;
+    }
+}

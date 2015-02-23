@@ -1,5 +1,6 @@
 %h1 UnderGround
 %p Underground The Place For Producers To Showcase Their Work
+.container
 - if user_signed_in?
   %li
     = image_tag(current_user.image)
@@ -7,6 +8,6 @@
     - @user.tracks.each do |track|
       = track.name
       = audio_tag(track.song, controls: true )
-- else
-  %li
-    = link_to('Login', new_user_session_path)
+-# - else
+-#   %li
+-#     = link_to('Login', new_user_session_path)
