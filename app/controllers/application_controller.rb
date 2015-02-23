@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    if resource.role == 'user'
-      producers_path
-    end
+    user_path(resource)
   end
 
   protected

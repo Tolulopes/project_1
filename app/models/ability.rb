@@ -10,11 +10,6 @@ class Ability
         can :manage, :all
         # can :assign_roles, User 
         # can [:new, :create, :edit, :update, :destroy], [Producer, Comment]
-      elsif user.producer?
-        # can :manage, :all
-        can :read, :all
-        can :all, Track, user_id: user.id
-        # can do some stuff
       else
         can :read, :all
         can [:new, :create], Comment
