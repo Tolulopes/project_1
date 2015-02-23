@@ -1,0 +1,12 @@
+%li= link_to('All Tracks', tracks_path) 
+%p
+  %strong Name:
+  = @user.first_name
+%p
+  = image_tag @user.image
+- @user.tracks.each do |track|
+  = link_to track.name, track
+%p
+  %strong Bio:
+  = @user.bio
+

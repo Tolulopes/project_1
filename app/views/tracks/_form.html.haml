@@ -1,0 +1,9 @@
+= simple_form_for(@track) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.file_field :song
+  .form-actions
+    = f.hidden_field :user_id, value: current_user.id
+    = f.button :submit

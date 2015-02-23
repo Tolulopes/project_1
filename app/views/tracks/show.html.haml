@@ -1,0 +1,29 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @track.name
+%p
+  %strong User:
+  = @track.user.first_name
+%p
+  %strong Description:
+  = @track.description
+%p
+  %strong Song:
+  = audio_tag(@track.song, controls: true)
+- if user_signed_in?
+  %h2 Add a comment:
+  = form_for([@comment]) do |f|
+    %p
+      = f.label :commenter
+      %br
+        = f.text_field :commenter, value: current_user.first_name, disabled: true
+    %p
+      = f.label :body
+      %br
+        = f.text_area :body
+    %p
+      = f.submit
+= link_to 'Edit', edit_track_path(@track)
+|
+= link_to 'Back', tracks_path
