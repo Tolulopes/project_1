@@ -11,7 +11,7 @@ Track.delete_all
 u1 = User.create!(email: 'test1@test.com', password: 'password', password_confirmation: 'password')
 u2 = User.create!(email: 'test2@test.com', password: 'password', password_confirmation: 'password')
 u3 = User.create!(email: 'test3@test.com', password: 'password', password_confirmation: 'password')
-u4 = User.create!(email: 'tolu@underground.com', password: 'password', password_confirmation: 'password`')
+u4 = User.create!(email: 'tolu@underground.com', password: 'password', password_confirmation: 'password')
 
 t1 = Track.create(name: 'track1', user_id: u1.id, description: 'first song')
 t1.song = 'song_1.mp3'
